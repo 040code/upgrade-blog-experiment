@@ -20,18 +20,14 @@ A service running in a container does not know the external exposed port. The po
 
 Running micro services in docker containers on AWS ECS looks as follows.
 
-<a href="#">
-    <img src="{{ site.baseurl }}/img/ecs1.png" height="80%" width="80%" alt="ECS">
-</a>
+![ecs1](./img/ecs1.png) 
 
 Each micro service is defined as task which will run as service (a docker container). The docker container runs on a Amazon EC2 instance that also runs docker agent to manage the cluster. Unfortunately, the agent has no API to lookup the exposed port.
 
 ### Solution
 To lookup the exposed port an extra agent is added to the EC2 instance. The [discovery agent](https://github.com/npalm/docker-discovery-agent) uses an API to discover the port for a given container id, internal port and protocol. The only drawback is that the discovery agent needs access to the docker socket which is a potential security risk.
 
-<a href="#">
-    <img src="{{ site.baseurl }}/img/ecs2.png" height="100%" width="100%" alt="ECS">
-</a>
+![ecs2](./img/ecs2.png) 
 
 Let’s explain the working of the discovery agent by example: First we have to start the agent as a docker container.
 

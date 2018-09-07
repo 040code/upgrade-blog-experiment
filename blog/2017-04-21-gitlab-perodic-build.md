@@ -20,9 +20,7 @@ To setup a periodic build you first need to be able to trigger a build in some w
 - Scroll down to the trigger section and create a trigger
 - Make a note of the TOKEN and trigger URL. An curl example for trigger is shown as well.
 
-<a href="#">
-    <img src="{{ site.baseurl }}/img/gitlabtrigger.png" alt="GitLab trigger">
-</a>
+![Gitlab Trigger](./img/gitlabtrigger.png) 
 
 Next we test that we are able to trigger the build remotely be executing the `curl` command below.
 

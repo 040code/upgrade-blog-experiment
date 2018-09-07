@@ -87,7 +87,7 @@ export const IndexQuery = graphql`
             title
             subtitle
             date(formatString: "YYYY-MM-DD")
-            category
+            category tags
           }
           excerpt(pruneLength: 200)
           timeToRead
