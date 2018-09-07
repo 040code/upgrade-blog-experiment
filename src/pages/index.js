@@ -51,6 +51,7 @@ const IndexPage = ({
         {postEdges.map(post => (
           <Article
             title={post.node.frontmatter.title}
+            subtitle={post.node.frontmatter.subtitle}
             date={post.node.frontmatter.date}
             excerpt={post.node.excerpt}
             timeToRead={post.node.timeToRead}
@@ -84,6 +85,7 @@ export const IndexQuery = graphql`
           }
           frontmatter {
             title
+            subtitle
             date(formatString: "YYYY-MM-DD")
             category
           }

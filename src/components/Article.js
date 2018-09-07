@@ -34,7 +34,14 @@ const Excerpt = styled.p`
   margin-bottom: 1rem;
 `;
 
-const Article = ({ title, date, excerpt, slug, timeToRead, category }) => {
+const SubTitle = styled.p`
+  grid-column: -1 / 1;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+`;
+
+const Article = ({ title, subtitle, date, excerpt, slug, timeToRead, category }) => {
   const firstChar = title.charAt(0);
 
   return (
@@ -43,6 +50,7 @@ const Article = ({ title, date, excerpt, slug, timeToRead, category }) => {
         <Initiale>{firstChar}</Initiale>
         <Link to={slug}>{title}</Link>
       </Title>
+      <SubTitle>{subtitle}</SubTitle>
       <Subline>
         {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
         <Link to={`/categories/${kebabCase(category)}`}>{category}</Link>
@@ -56,6 +64,7 @@ export default Article;
 
 Article.propTypes = {
   title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,

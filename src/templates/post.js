@@ -30,6 +30,11 @@ const Title = styled.h1`
   margin-bottom: 1rem;
 `;
 
+const SubTitle = styled.h3`
+  margin-bottom: 1rem;
+`;
+
+
 const PostContent = styled.div`
   margin-top: 4rem;
 `;
@@ -49,6 +54,7 @@ const Post = props => {
         </Header>
         <Content>
           <Title>{post.title}</Title>
+          <SubTitle>{post.subtitle}</SubTitle>
           <Subline>
             {post.date} &mdash; {postNode.timeToRead} Min Read &mdash; In{' '}
             <Link to={`/categories/${kebabCase(post.category)}`}>{post.category}</Link>
@@ -87,7 +93,8 @@ export const postQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "DD.MM.YYYY")
+        subtitle
+        date(formatString: "YYYY-MM-DD")
         category
       }
       timeToRead
